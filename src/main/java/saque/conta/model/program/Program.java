@@ -25,8 +25,13 @@ public class Program {
 
 			Conta conta = new Conta(numeroConta, nomeTitular, limiteSaque);
 
-			System.out.println("Deseja fazer um depósito em conta? (S/N) ");
-			char escolhaDeposito = sc.next().charAt(0);
+			char escolhaDeposito = ' ';
+			try {
+				System.out.println("Deseja fazer um depósito em conta? (S/N) ");
+			     escolhaDeposito = sc.next().charAt(0);
+			} catch (Exception e) {
+				System.out.println("Da próxima vez digite uma das opções a seguir ['S','s',N','n']");
+			}
 
 			while (escolhaDeposito == 'S' || escolhaDeposito == 's') {
 
@@ -54,7 +59,7 @@ public class Program {
 				System.out.println("Deseja fazer um novo saque? (S/N)");
 				escolhaDeposito = sc.next().charAt(0);
 			}
-			
+
 			System.out.println("Saldo da Conta: R$" + conta.getSaldo());
 			sc.close();
 
